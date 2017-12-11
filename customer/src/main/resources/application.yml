@@ -1,0 +1,11 @@
+# Core application configuration
+server:
+  port: 8080
+spring:
+  application:
+    name: Customer
+
+# Cloud configuration
+eureka:
+  client:
+    enabled: true
