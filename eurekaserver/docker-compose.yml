@@ -1,0 +1,13 @@
+version: '2'
+services:
+  redis:
+    build: .
+    env_file:
+      - node.env
+    container_name: 'eureka-server'
+    restart: 'always'
+    ports:
+     - "8761:8761"
+    extra_hosts:
+     - "peer2:192.168.10.212"
+     - "peer3:192.168.10.212"
