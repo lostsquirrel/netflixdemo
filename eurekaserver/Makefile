@@ -5,7 +5,7 @@ IMAGETAG=$(VERSION)
 REGISTRY=registry.cn-hangzhou.aliyuncs.com
 IMAGE=$(REGISTRY)/lisong/eureka-server
 VERSIONED_IMAGE=$(IMAGE):$(IMAGETAG)
-JAR_FILE=eureka-server-$(VERSION).jar
+JAR_FILE=target/eureka-server-$(VERSION).jar
 # 登陆registry
 login:
 	docker login --username=songli1988@126.com registry.cn-hangzhou.aliyuncs.com --password=luyou123
@@ -18,7 +18,7 @@ pull:
 	docker pull $(VERSIONED_IMAGE)
 
 package:
-    mvn clean package
+	mvn clean package
 
 build: package
 	docker build --no-cache -t $(VERSIONED_IMAGE) \
@@ -35,4 +35,4 @@ clean:
 	docker rmi -f $(docker images | grep "<none>" | awk '{print $3}')
 	docker rmi -f $(docker images -f "dangling=true" -q)
 
-.PHONY push pull package build test start
+.PHONY: push pull package build test start
