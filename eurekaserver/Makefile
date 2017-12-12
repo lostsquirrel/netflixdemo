@@ -1,11 +1,11 @@
 SHELL=/bin/bash
 
-VERSION=$(shell cat version.txt)
+VERSION=1.0-SNAPSHOT
 IMAGETAG=$(VERSION)
 REGISTRY=registry.cn-hangzhou.aliyuncs.com
 IMAGE=$(REGISTRY)/lisong/eureka-server
 VERSIONED_IMAGE=$(IMAGE):$(IMAGETAG)
-
+JAR_FILE=eureka-server-$(VERSION).jar
 # 登陆registry
 login:
 	docker login --username=songli1988@126.com registry.cn-hangzhou.aliyuncs.com --password=luyou123
@@ -17,15 +17,22 @@ push:
 pull:
 	docker pull $(VERSIONED_IMAGE)
 
-build:
-	docker build --no-cache -t $(VERSIONED_IMAGE) -f $(UBUNTU_VERSION)-$(CUSTOM_VERSION)/Dockerfile .
+package:
+    mvn clean package
+
+build: package
+	docker build --no-cache -t $(VERSIONED_IMAGE) \
+	--build-arg JAR_FILE=$(JAR_FILE) \
+	.
 
 test:
 	docker run --rm  $(VERSIONED_IMAGE)
 
 start:
-    docker-compose up -d
+	docker-compose up -d
 # 删除构建失败的镜像
 clean:
 	docker rmi -f $(docker images | grep "<none>" | awk '{print $3}')
 	docker rmi -f $(docker images -f "dangling=true" -q)
+
+.PHONY push pull package build test start
