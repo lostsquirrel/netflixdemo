@@ -6,6 +6,8 @@ REGISTRY=registry.cn-hangzhou.aliyuncs.com
 IMAGE=$(REGISTRY)/lisong/eureka-server
 VERSIONED_IMAGE=$(IMAGE):$(IMAGETAG)
 JAR_FILE=target/eureka-server-$(VERSION).jar
+export VERSIONED_IMAGE
+export JAR_FILE
 # 登陆registry
 login:
 	docker login --username=songli1988@126.com registry.cn-hangzhou.aliyuncs.com --password=luyou123
