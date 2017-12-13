@@ -1,0 +1,10 @@
+server:
+  port: 0
+eureka:
+  client:
+    enabled: false
+
+
+stores:
+  ribbon:
+    listOfServers: 192.168.10.10:8081
