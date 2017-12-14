@@ -2,8 +2,6 @@ version: '2'
 services:
   eureka-server:
     image: ${VERSIONED_IMAGE}
-    env_file:
-      - node.env
     container_name: 'config-server'
     restart: 'always'
     ports:
