@@ -5,7 +5,7 @@ services:
     container_name: 'config-server'
     restart: 'always'
     ports:
-     - "8761:8761"
+     - "8888:8888"
     extra_hosts:
      - "peer1:192.168.10.211"
      - "peer2:192.168.10.212"
