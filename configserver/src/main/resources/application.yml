@@ -1,0 +1,48 @@
+server:
+  port: 8888
+eureka:
+  client:
+    enabled: false
+
+spring:
+  cloud:
+    config:
+      server:
+        git:
+          uri: git@code.aliyun.com/{application}
+          ignoreLocalSshSettings: true
+          hostKeyAlgorithm: ssh-rsa
+          basedir: target
+          privateKey: |
+                        -----BEGIN RSA PRIVATE KEY-----
+                        MIIEpQIBAAKCAQEAvc/rKdtXyJTVL3q9zalUWQC3nM50FQEpcl6mvEvqFpGIj88j
+                        Dmj463SMDiFdCm+fzONn0iLROxnSn0/tuXzZVnCe02zJcQXSp14WuGf2xViXd+Bv
+                        NeFGWtCFMAcworOPOkwb6WPyO/wvwbDP1KiNxpAq98kABHIrDz2Al6iUGEICo4t8
+                        KTWxXP3tBEPxVsaREf3jnnFF34FaLw+20sHd1SihFfv+YxhKBgmUjSFoZkzBH6bI
+                        VfDWtVOb7s6VUwTa/XFJyw/P6lBwYOwX1neP/XaVWtJ+ijYPkopm4D2OVyfkXVek
+                        /RHvuANrPeaWSDyPUgZWd+mw/9Tq1YetvfR56QIDAQABAoIBAQCxUhO2vpp7X87o
+                        1BmMj6ukme7uJlB7buJxXcsWDTVacArLjg6J37bq/633ZWOt5Cm9FpRe0vfz5mPF
+                        QL4skl3XSs6VZQOq+m2YvWUsULNQGTsnWhuKkjFPlY1XGOBunqAnLgLFPgGF2Eol
+                        ADCn0e7gmL4LTVMe1Ck1y5beFzaCkUxRz4Wa3dReC+NWhFEeOmka6N2cBXpHxiSk
+                        bHQDEW9Yw49/oRtZL0u1tBUBw0Hq/uqIwry2gWAMDHC6nrYoCkfwPpmHUEKMZLhg
+                        DAG5avgMN5uMDIb5W+u8NbyZV6yZvVeTr3KuCoCvVHYG2rvrfwXiuxOueIcLHPWw
+                        F6Lkc/ihAoGBAN70zyo3Ww1MLwKVf0tU4stmWdjqCBXJPmouM23CLl3Fd03JVBMe
+                        O7F6pZJlGQ8VfEsYQDV2iFfG5hUTbWTnh3ygOdpJyMDW7UmVTrrDTxK6+fsDsv1D
+                        j4xh6NH6JOfcog1i6ljbu96ogRf2rbdaXp7tEcM6O/a6GCN9kGPDJ2S7AoGBANnx
+                        loXiUYdZOnz4nvNm9rVKbJP3iLSqHOKlTPrTNFJ9708SP4GWgR7cz6RnBQWYZVP6
+                        Kl9i8fw3Q+TTFg4avMIasFHgTeAGNfB8DNCO6DDCxcLViKl+KrkDEJoWaj7omgni
+                        4a4VxiHyFY3NsRT1tzJz3ta0eo7fD0x9nAW5AgOrAoGAAUhVPL/uxSfQCWrEvbEy
+                        UMs47xeBjmaG9mNnplT8oUt2gTsMQcPlwgKbmzj7qOuNuHzeObCB3kdloW9oLLFs
+                        RRpC2u+buQhDey3hsw9WkBwFPh1qVSyjUcJqbXLL7Y2GXR9Zi8NP1FsRywp/O1PI
+                        wY9Jj97w4110sBeT0g8YVesCgYEAzUN33QjWeH9VUrZmHiBvYzeBI6sTGfTN17iP
+                        0/xvXvI1HWe2YDp7ybF17wUH+ckaRglrNwNdnYn/a9hTAV21QasZPUPglInE64Yq
+                        G5M8pBANaf7rA5dMbYuxay6JSk6QJZeFrgvb28TBABkmGvOBYwc2bUj11PHI2uXC
+                        uLEScJkCgYEAqBb3WMY6c6i6HuJW+iqO3GiLVtf00tpMr6RthyGkwMLUSyITpMiT
+                        JUCaE7xq73PPsZdxSihSBTqg0xTaU0/PMFWgIHtlkRVQAKmTeOgpj8HNUgwPash4
+                        gYu/ypqnk2oI8Luz0X6kfRVqREb7+ROJCZ3fKY7PeZYKwGdbopizfyg=
+                        -----END RSA PRIVATE KEY-----
+
+
+management:
+  security:
+    enabled: false
