@@ -1,6 +1,4 @@
-spring:
-  application:
-    name: MyConfig
+
 server:
   port: 8888
 eureka:
@@ -10,6 +8,8 @@ eureka:
       defaultZone: http://peer1:8761/eureka/
 
 spring:
+  application:
+    name: MyConfig
   cloud:
     config:
       server:
