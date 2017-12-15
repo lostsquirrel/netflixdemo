@@ -9,3 +9,8 @@ spring:
 eureka:
   client:
     enabled: true
+    serviceUrl:
+      defaultZone: http://peer1:8761/eureka/
+
+feign:
+  name: stores
