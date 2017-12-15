@@ -19,6 +19,9 @@ push:
 pull:
 	docker pull $(VERSIONED_IMAGE)
 
+code:
+	git rest --hard HEAD && git pull
+	
 package:
 	mvn clean package
 
