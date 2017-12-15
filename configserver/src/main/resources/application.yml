@@ -9,7 +9,9 @@ spring:
     config:
       server:
         git:
-          uri: git@code.aliyun.com/{application}
+          uri: git@code.aliyun.com/lisong/eureka-cluster-config
+          searchPaths: '{application}'
+          force-pull: true
           ignoreLocalSshSettings: true
           hostKeyAlgorithm: ssh-rsa
           basedir: target
