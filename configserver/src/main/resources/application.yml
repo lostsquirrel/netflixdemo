@@ -1,19 +1,25 @@
+spring:
+  application:
+    name: MyConfig
 server:
   port: 8888
 eureka:
   client:
-    enabled: false
+    enabled: true
+    serviceUrl:
+      defaultZone: http://peer1:8761/eureka/
 
 spring:
   cloud:
     config:
       server:
         git:
-          uri: git@code.aliyun.com/lisong/eureka-cluster-config
+          uri: git@code.aliyun.com:lisong/config-repo.git
           searchPaths: '{application}'
           force-pull: true
           ignoreLocalSshSettings: true
           hostKeyAlgorithm: ssh-rsa
+          hostKey: AAAAB3NzaC1yc2EAAAADAQABAAABAQDpekrAFkiprFivbD1GqlR3Aj23MtY4ST88iCJqNqAMaU7S4y08GzEOXjd3crp9y/1+e688JQkzB/RshO6HBs5zcUjKOXl2ZEJMgkOX1OM3T+Glrv6olmq+yG7E9gAqz+QROT16qSG8feIWqbQ/550rGXLMQgiEFUW2CvcwqEr/vwvItwbhcAjZ9XdCO7VpqHmSP9o2UWZgDrvPV+FaacTHh+THCWt/9heoDwfyYomT2KU8rfim8Pj0tW8SnrD0Azr0EEfjfpH0+6Fe/HAco/D4Wt2IBie61An9QH35V5JXt3Ih7pgWCNtHmIwdM+EYBdZu2nWwHCcXyKbrFzRjHMUR
           basedir: target
           privateKey: |
                         -----BEGIN RSA PRIVATE KEY-----

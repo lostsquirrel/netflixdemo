@@ -1,4 +1,4 @@
-package demo.spring.store.po;
+package demo.spring.customer.client.po;
 
 import org.springframework.data.geo.Point;
 
