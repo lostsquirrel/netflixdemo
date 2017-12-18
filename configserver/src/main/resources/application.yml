@@ -9,6 +9,7 @@ eureka:
   instance:
     prefer-ip-address: true
     hostname: peer1
+    ip-address: 192.168.10.211
 spring:
   application:
     name: MyConfig
