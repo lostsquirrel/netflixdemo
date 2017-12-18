@@ -6,7 +6,9 @@ eureka:
     enabled: true
     serviceUrl:
       defaultZone: http://peer1:8761/eureka/
-
+  instance:
+    prefer-ip-address: true
+    hostname: peer1
 spring:
   application:
     name: MyConfig

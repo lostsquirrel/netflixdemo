@@ -1,6 +1,6 @@
 SHELL=/bin/bash
 
-VERSION=1.0-SNAPSHOT
+VERSION=0.0.1-SNAPSHOT
 IMAGETAG=$(VERSION)
 REGISTRY=registry.cn-hangzhou.aliyuncs.com
 IMAGE=$(REGISTRY)/lisong/config-server
