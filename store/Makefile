@@ -31,8 +31,8 @@ build: package
 test:
 	docker run --rm  $(VERSIONED_IMAGE)
 
-deploy:
-    docker-compose up -d
+start:
+	docker-compose up -d
 # 删除构建失败的镜像
 clean:
 	docker rmi -f $(docker images | grep "<none>" | awk '{print $3}')
