@@ -3,7 +3,7 @@ SHELL=/bin/bash
 VERSION=1.0-SNAPSHOT
 IMAGETAG=$(VERSION)
 REGISTRY=registry.cn-hangzhou.aliyuncs.com
-IMAGE=$(REGISTRY)/lisong/config-server
+IMAGE=$(REGISTRY)/lisong/store
 VERSIONED_IMAGE=$(IMAGE):$(IMAGETAG)
 JAR_FILE=target/config-server-$(VERSION).jar
 export VERSIONED_IMAGE
