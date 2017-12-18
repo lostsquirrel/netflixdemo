@@ -1,9 +1,10 @@
-version: '2'
+version: '3'
 services:
   eureka-server:
     image: ${VERSIONED_IMAGE}
     container_name: 'config-server'
     restart: 'always'
+    hostname: peer1
     ports:
      - "8888:8888"
     extra_hosts:
