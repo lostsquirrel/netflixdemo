@@ -33,8 +33,8 @@ build: package
 test:
 	docker run --rm  $(VERSIONED_IMAGE)
 
-start:
-	docker-compose up -d
+start-peer1:
+	docker-compose up -d --build
 # 删除构建失败的镜像
 clean:
 	docker rmi -f $(docker images | grep "<none>" | awk '{print $3}')
