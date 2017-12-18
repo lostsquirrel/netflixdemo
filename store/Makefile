@@ -5,7 +5,7 @@ IMAGETAG=$(VERSION)
 REGISTRY=registry.cn-hangzhou.aliyuncs.com
 IMAGE=$(REGISTRY)/lisong/store
 VERSIONED_IMAGE=$(IMAGE):$(IMAGETAG)
-JAR_FILE=target/config-server-$(VERSION).jar
+JAR_FILE=target/store-$(VERSION).jar
 export VERSIONED_IMAGE
 export JAR_FILE
 # 登陆registry

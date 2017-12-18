@@ -1,12 +1,12 @@
 version: '3'
 services:
-  eureka-server:
+  store:
     build: deploy
-    container_name: 'config-server'
+    container_name: 'store'
     restart: 'always'
     hostname: peer1
     ports:
-     - "8888:8888"
+     - "8081:8080"
     extra_hosts:
      - "peer1:192.168.10.211"
      - "peer2:192.168.10.212"
