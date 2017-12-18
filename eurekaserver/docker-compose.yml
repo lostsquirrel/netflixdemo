@@ -3,8 +3,6 @@ services:
   eureka-server:
     build: deploy
     container_name: 'eureka-server'
-    env_file:
-      - node.env
     restart: 'always'
     ports:
      - "8761:8761"

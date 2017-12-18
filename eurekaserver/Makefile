@@ -37,6 +37,7 @@ peer1:
 	mv deploy/peer1.yml deploy/application.yml
 peer2:
 	mv deploy/peer2.yml deploy/application.yml
+
 start:
 	docker-compose up -d --build
 # 删除构建失败的镜像
