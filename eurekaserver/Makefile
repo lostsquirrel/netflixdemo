@@ -44,5 +44,5 @@ start:
 clean:
 	docker rmi -f $(docker images | grep "<none>" | awk '{print $3}')
 	docker rmi -f $(docker images -f "dangling=true" -q)
-
+    /sbin/ip route|awk '/default/ { print $3 }'
 .PHONY: push pull package build test start
