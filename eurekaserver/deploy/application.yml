@@ -1,12 +1,13 @@
 spring:
+  application:
+    name: peer1
   profiles: peer1
 eureka:
     instance:
+        instance-id: peer1
         hostname: peer1
         prefer-ip-address: true
         ip-address: 192.168.10.211
-        client:
-            serviceUrl:
-              defaultZone: http://peer2/eureka/
-            register-with-eureka: true
-            fetch-registry: true
+    client:
+        serviceUrl:
+            defaultZone: http://peer2:8761/eureka/
