@@ -1,4 +1,4 @@
-version: '2'
+version: '3'
 services:
   eureka-server:
     build: deploy
@@ -8,6 +8,7 @@ services:
     restart: 'always'
     ports:
      - "8761:8761"
+    network_mode: "host"
     extra_hosts:
      - "peer1:192.168.10.211"
      - "peer2:192.168.10.212"
