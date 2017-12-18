@@ -33,7 +33,7 @@ build: package
 test:
 	docker run --rm  $(VERSIONED_IMAGE)
 
-start-peer1:
+start:
 	docker-compose up -d --build
 # 删除构建失败的镜像
 clean:
