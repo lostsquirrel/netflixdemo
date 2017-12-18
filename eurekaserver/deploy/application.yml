@@ -1,6 +1,9 @@
+spring:
+  profiles: peer2
 eureka:
     instance:
         hostname: peer1
+        ip-address: 192.168.10.211
         client:
             serviceUrl:
               defaultZone: http://peer2/eureka/
