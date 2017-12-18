@@ -1,4 +1,4 @@
-FROM registry.cn-hangzhou.aliyuncs.com/lisong/java:8_server-jre
+FROM registry.cn-hangzhou.aliyuncs.com/lisong/java:8_server-jre_debug
 VOLUME /tmp
 ARG JAR_FILE
 ADD ${JAR_FILE} app.jar

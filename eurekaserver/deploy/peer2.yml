@@ -4,10 +4,8 @@ spring:
 eureka:
   instance:
     hostname: peer2
-    prefer-ip-address: true
-    ip-address: 192.168.10.212
   client:
     serviceUrl:
-      defaultZone: http://peer1:8761/eureka/
+      defaultZone: http://peer1:8761/eureka/,http://peer2:8761/eureka/
     register-with-eureka: true
     fetch-registry: true
