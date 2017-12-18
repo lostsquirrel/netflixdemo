@@ -1,7 +1,7 @@
 version: '2'
 services:
   eureka-server:
-    build: deploy/Dockerfile
+    build: deploy
     container_name: 'eureka-server'
     env_file:
       - node.env
