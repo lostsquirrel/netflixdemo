@@ -1,12 +1,19 @@
 server:
-  port: 8761
+  port: ${SERVER_PORT:8761}
+spring:
+  application:
+    name: ${SPRING_APPLICATION_NAME:eureka}
+  cloud:
+    config:
+      discovery:
+        service-id: MyConfig
+
 eureka:
   instance:
-    hostname: localhost
-
+    prefer-ip-address: true
+    hostname: ${HOSTNAME:localhost}
   client:
-    registerWithEureka: false
-    fetchRegistry: false
+    registerWithEureka: ${EUREKA_CLIENT_REGISTER_WITH_EUREKA:false}
+    fetchRegistry: ${EUREKA_CLIENT_FETCH_REGISTRY:false}
     serviceUrl:
-      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
-
+      defaultZone: http://${ANOTHER_EUREKA_INSTANCE_HOST:eureka.instance.hostname}:${ANOTHER_EUREKA_INSTANCE_PORT:server.port}/eureka/

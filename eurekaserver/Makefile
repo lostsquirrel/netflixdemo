@@ -33,16 +33,11 @@ build: package
 test:
 	docker run --rm  $(VERSIONED_IMAGE)
 
-peer1:
-	mv deploy/peer1.yml deploy/application.yml
-peer2:
-	mv deploy/peer2.yml deploy/application.yml
-
 start:
-	docker-compose up -d --build
+	docker-compose up -d
 # 删除构建失败的镜像
 clean:
 	docker rmi -f $(docker images | grep "<none>" | awk '{print $3}')
 	docker rmi -f $(docker images -f "dangling=true" -q)
-
+	/sbin/ip route|awk '/default/ { print $3 }'
 .PHONY: push pull package build test start
