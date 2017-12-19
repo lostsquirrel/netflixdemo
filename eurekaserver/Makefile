@@ -35,6 +35,9 @@ test:
 
 start:
 	docker stack deploy  -c docker-compose.yml eureka
+	
+remove:
+	docker stack rm eureka
 # 删除构建失败的镜像
 :
 #	docker rmi -f $(docker images | grep "<none>" | awk '{print $3}')

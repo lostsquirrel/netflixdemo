@@ -1,47 +1,63 @@
-version: '3'
+version: '3.2'
 services:
   eureka1:
     image: registry.cn-hangzhou.aliyuncs.com/lisong/eureka-server:1.0-SNAPSHOT
+    deploy:
+      mode: replicated
+      replicas: 1
+      endpoint_mode: dnsrr
     networks:
       springcloud-overlay:
         aliases:
-          - eureka
-    ports:
-      - "8761:8761"
+          - eureka1
+
     environment:
       - SPRING_APPLICATION_NAME=eureka1
       - EUREKA_CLIENT_REGISTER_WITH_EUREKA=true
       - EUREKA_CLIENT_FETCH_REGISTRY=true
       - ANOTHER_EUREKA_INSTANCE_HOST=eureka2
-      - ANOTHER_EUREKA_INSTANCE_PORT=8762
+      - ANOTHER_EUREKA_INSTANCE_PORT=8761
   eureka2:
     image: registry.cn-hangzhou.aliyuncs.com/lisong/eureka-server:1.0-SNAPSHOT
+    deploy:
+      mode: replicated
+      replicas: 1
+      endpoint_mode: dnsrr
     networks:
       springcloud-overlay:
         aliases:
-          - eureka
-    ports:
-      - "8762:8761"
+          - eureka2
+
     environment:
-      - SPRING_APPLICATION_NAME=eureka3
+       - SPRING_APPLICATION_NAME=eureka2
        - EUREKA_CLIENT_REGISTER_WITH_EUREKA=true
        - EUREKA_CLIENT_FETCH_REGISTRY=true
        - ANOTHER_EUREKA_INSTANCE_HOST=eureka3
-       - ANOTHER_EUREKA_INSTANCE_PORT=8763
+       - ANOTHER_EUREKA_INSTANCE_PORT=8761
   eureka3:
     image: registry.cn-hangzhou.aliyuncs.com/lisong/eureka-server:1.0-SNAPSHOT
+    deploy:
+      mode: replicated
+      replicas: 1
+      endpoint_mode: dnsrr
     networks:
       springcloud-overlay:
         aliases:
-          - eureka
-    ports:
-      - "8763:8761"
+          - eureka3
+
     environment:
       - SPRING_APPLICATION_NAME=eureka3
       - EUREKA_CLIENT_REGISTER_WITH_EUREKA=true
       - EUREKA_CLIENT_FETCH_REGISTRY=true
       - ANOTHER_EUREKA_INSTANCE_HOST=eureka1
       - ANOTHER_EUREKA_INSTANCE_PORT=8761
+
+  nginx:
+    build: nginx
+    networks:
+      springcloud-overlay
+    ports:
+      - "80:80"
 networks:
   springcloud-overlay:
     external:

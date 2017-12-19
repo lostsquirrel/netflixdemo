@@ -33,6 +33,7 @@
         <module>store</module>
         <module>customer</module>
         <module>configserver</module>
+        <module>zuul-server</module>
     </modules>
     <packaging>pom</packaging>
 
