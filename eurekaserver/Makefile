@@ -34,10 +34,10 @@ test:
 	docker run --rm  $(VERSIONED_IMAGE)
 
 start:
-	docker-compose up -d
+	docker stack deploy  -c docker-compose.yml eureka
 # 删除构建失败的镜像
-clean:
-	docker rmi -f $(docker images | grep "<none>" | awk '{print $3}')
-	docker rmi -f $(docker images -f "dangling=true" -q)
-	/sbin/ip route|awk '/default/ { print $3 }'
+:
+#	docker rmi -f $(docker images | grep "<none>" | awk '{print $3}')
+#	docker rmi -f $(docker images -f "dangling=true" -q)
+#	/sbin/ip route|awk '/default/ { print $3 }'
 .PHONY: push pull package build test start
