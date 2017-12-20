@@ -34,7 +34,7 @@ test:
 	docker run --rm  $(VERSIONED_IMAGE)
 
 start:
-	docker stack deploy --with-registry-auth -c config.yml config
+	docker stack deploy --with-registry-auth -c docker-compose.yml config
 # 删除构建失败的镜像
 # clean:
 #	docker rmi -f $(docker images | grep "<none>" | awk '{print $3}')
