@@ -1,0 +1,12 @@
+version: '3.2'
+services:
+  nginx:
+    build: nginx
+    networks:
+      springcloud-overlay
+    ports:
+      - "80:80"
+networks:
+  springcloud-overlay:
+    external:
+      name: springcloud-overlay

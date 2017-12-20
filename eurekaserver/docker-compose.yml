@@ -52,12 +52,6 @@ services:
       - ANOTHER_EUREKA_INSTANCE_HOST=eureka1
       - ANOTHER_EUREKA_INSTANCE_PORT=8761
 
-  nginx:
-    build: nginx
-    networks:
-      springcloud-overlay
-    ports:
-      - "80:80"
 networks:
   springcloud-overlay:
     external:
