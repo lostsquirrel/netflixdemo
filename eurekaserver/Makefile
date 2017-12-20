@@ -34,7 +34,7 @@ test:
 	docker run --rm  $(VERSIONED_IMAGE)
 
 start: remove
-	docker stack deploy  -c docker-compose.yml eureka
+	docker stack deploy --with-registry-auth -c docker-compose.yml eureka
 	
 remove:
 	docker stack rm eureka

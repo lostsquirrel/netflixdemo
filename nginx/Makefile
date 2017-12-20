@@ -31,7 +31,7 @@ test:
 	docker run --rm  $(VERSIONED_IMAGE)
 
 start: build remove
-	docker stack deploy -c nginx.yml nginx
+	docker stack deploy --with-registry-auth -c nginx.yml nginx
 	
 remove:
 	docker stack rm nginx

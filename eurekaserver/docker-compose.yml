@@ -11,7 +11,6 @@ services:
       springcloud-overlay:
         aliases:
           - eureka1
-
     environment:
       - SPRING_APPLICATION_NAME=eureka1
       - EUREKA_CLIENT_REGISTER_WITH_EUREKA=true
@@ -47,7 +46,6 @@ services:
       springcloud-overlay:
         aliases:
           - eureka3
-
     environment:
       - SPRING_APPLICATION_NAME=eureka3
       - EUREKA_CLIENT_REGISTER_WITH_EUREKA=true
