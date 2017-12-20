@@ -5,7 +5,7 @@ spring:
   application:
     name: Stores
   redis:
-    host: peer1
+    host: redis
   cloud:
     config:
       discovery:
