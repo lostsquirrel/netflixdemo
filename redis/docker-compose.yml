@@ -1,0 +1,14 @@
+version: '3.2'
+services:
+  redis:
+    image: ${VERSIONED_IMAGE}
+    networks:
+      springcloud-overlay:
+        aliases:
+          - redis
+    ports:
+      - "6379:6379"
+networks:
+  springcloud-overlay:
+    external:
+      name: springcloud-overlay
