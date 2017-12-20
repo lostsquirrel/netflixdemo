@@ -1,6 +1,6 @@
 SHELL=/bin/bash
 
-VERSION=1
+VERSION=v1.$(shell git rev-parse --short HEAD)
 IMAGETAG=$(VERSION)
 REGISTRY=registry.cn-hangzhou.aliyuncs.com
 IMAGE=$(REGISTRY)/lisong/cloud-web
