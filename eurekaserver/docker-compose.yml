@@ -2,6 +2,7 @@ version: '3.2'
 services:
   eureka1:
     image: ${VERSIONED_IMAGE}
+    hostname: eureka1
     deploy:
       mode: replicated
       replicas: 1
@@ -19,6 +20,7 @@ services:
       - ANOTHER_EUREKA_INSTANCE_PORT=8761
   eureka2:
     image: ${VERSIONED_IMAGE}
+    hostname: eureka2
     deploy:
       mode: replicated
       replicas: 1
@@ -36,6 +38,7 @@ services:
        - ANOTHER_EUREKA_INSTANCE_PORT=8761
   eureka3:
     image: ${VERSIONED_IMAGE}
+    hostname: eureka3
     deploy:
       mode: replicated
       replicas: 1
