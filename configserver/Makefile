@@ -4,7 +4,7 @@ VERSION=1.0-SNAPSHOT
 IMAGETAG=$(VERSION)
 REGISTRY=registry.cn-hangzhou.aliyuncs.com
 IMAGE=$(REGISTRY)/lisong/config-server
-VERSIONED_IMAGE=$(IMAGE):$(IMAGETAG)
+VERSIONED_IMAGE=$(IMAGE):$(IMAGETAG).$(shell git rev-parse --short HEAD)
 JAR_FILE=target/config-server-$(VERSION).jar
 export VERSIONED_IMAGE
 export JAR_FILE
@@ -18,8 +18,10 @@ push:
 
 pull:
 	docker pull $(VERSIONED_IMAGE)
+
 code:
 	git reset --hard HEAD && git pull
+
 package:
 	mvn clean package
 
@@ -32,10 +34,10 @@ test:
 	docker run --rm  $(VERSIONED_IMAGE)
 
 start:
-	docker-compose up -d
+	docker stack deploy --with-registry-auth -c config.yml config
 # 删除构建失败的镜像
-clean:
-	docker rmi -f $(docker images | grep "<none>" | awk '{print $3}')
-	docker rmi -f $(docker images -f "dangling=true" -q)
+# clean:
+#	docker rmi -f $(docker images | grep "<none>" | awk '{print $3}')
+#	docker rmi -f $(docker images -f "dangling=true" -q)
 
 .PHONY: push pull package build test start

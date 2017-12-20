@@ -1,13 +1,13 @@
 version: '3'
 services:
-  eureka-server:
+  config:
     image: ${VERSIONED_IMAGE}
-    container_name: 'config-server'
-    restart: 'always'
-    hostname: peer1
-    ports:
-     - "8888:8888"
-    extra_hosts:
-     - "peer1:192.168.10.211"
-     - "peer2:192.168.10.212"
-     - "peer3:192.168.10.213"
+    networks:
+      springcloud-overlay:
+        aliases:
+          - config
+
+networks:
+  springcloud-overlay:
+    external:
+      name: springcloud-overlay
