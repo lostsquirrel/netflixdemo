@@ -33,7 +33,7 @@ build: package
 test:
 	docker run --rm  $(VERSIONED_IMAGE)
 
-start:
+start: remove
 	docker stack deploy  -c docker-compose.yml eureka
 	
 remove:

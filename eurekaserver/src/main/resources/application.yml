@@ -1,5 +1,6 @@
 server:
   port: ${SERVER_PORT:8761}
+  context-path: /eureka
 spring:
   application:
     name: ${SPRING_APPLICATION_NAME:eureka}
@@ -7,7 +8,6 @@ spring:
     config:
       discovery:
         service-id: MyConfig
-
 eureka:
   instance:
     prefer-ip-address: true
