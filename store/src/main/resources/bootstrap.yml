@@ -1,6 +1,6 @@
 server:
   port: 8081
-  context-path: stores
+  context-path: /stores
 spring:
   application:
     name: Stores
