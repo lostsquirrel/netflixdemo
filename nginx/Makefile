@@ -30,11 +30,11 @@ build:
 test:
 	docker run --rm  $(VERSIONED_IMAGE)
 
-start:
+start: build remove
 	docker stack deploy -c nginx.yml nginx
 	
 remove:
-	docker stack rm eureka
+	docker stack rm nginx
 # 删除构建失败的镜像
 :
 #	docker rmi -f $(docker images | grep "<none>" | awk '{print $3}')

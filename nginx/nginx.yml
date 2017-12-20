@@ -3,7 +3,9 @@ services:
   nginx:
     image: registry.cn-hangzhou.aliyuncs.com/lisong/cloud-web:1
     networks:
-      - springcloud-overlay
+      springcloud-overlay:
+        aliases:
+          - nginx
     ports:
       - "80:80"
 networks:
