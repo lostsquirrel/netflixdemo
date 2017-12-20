@@ -1,13 +1,12 @@
-version: '3'
+version: '3.4'
 services:
   store:
-    build: deploy
-    container_name: 'store'
-    restart: 'always'
-    hostname: peer1
-    ports:
-     - "8081:8080"
-    extra_hosts:
-     - "peer1:192.168.10.211"
-     - "peer2:192.168.10.212"
-     - "peer3:192.168.10.213"
+    image: ${VERSIONED_IMAGE}
+    networks:
+      springcloud-overlay:
+        aliases:
+          - store
+networks:
+  springcloud-overlay:
+    external:
+      name: springcloud-overlay

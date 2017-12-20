@@ -1,5 +1,6 @@
 server:
-  port: 8080
+  port: 8081
+  context-path: stores
 spring:
   application:
     name: Stores
@@ -10,20 +11,15 @@ spring:
       discovery:
         enabled: true
         service-id: MyConfig
-endpoints:
-  info:
-    enabled: true
-  enabled: true
 eureka:
   client:
     enabled: true
     registerWithEureka: true
     fetchRegistry: true
     serviceUrl:
-      defaultZone: http://peer2:8761/eureka/
+      defaultZone: http://eureka1:8761/eureka/
   instance:
     prefer-ip-address: true
-    ip-address: 192.168.10.10
 debug: true
 
 

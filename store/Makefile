@@ -3,8 +3,8 @@ SHELL=/bin/bash
 VERSION=1.0-SNAPSHOT
 IMAGETAG=$(VERSION)
 REGISTRY=registry.cn-hangzhou.aliyuncs.com
-IMAGE=$(REGISTRY)/lisong/store
-VERSIONED_IMAGE=$(IMAGE):$(IMAGETAG)
+IMAGE=$(REGISTRY)/lisong/stores
+VERSIONED_IMAGE=$(IMAGE):$(IMAGETAG).$(shell git rev-parse --short HEAD)
 JAR_FILE=target/store-$(VERSION).jar
 export VERSIONED_IMAGE
 export JAR_FILE
@@ -32,10 +32,13 @@ test:
 	docker run --rm  $(VERSIONED_IMAGE)
 
 start:
-	docker-compose up -d
+	docker stack deploy --with-registry-auth -c docker-compose.yml stores
+	
+remove:
+	docker stack rm stores
 # 删除构建失败的镜像
-clean:
-	docker rmi -f $(docker images | grep "<none>" | awk '{print $3}')
-	docker rmi -f $(docker images -f "dangling=true" -q)
+#clean:
+#	docker rmi -f $(docker images | grep "<none>" | awk '{print $3}')
+#	docker rmi -f $(docker images -f "dangling=true" -q)
 
 .PHONY: push pull package build test start
