@@ -3,7 +3,7 @@ SHELL=/bin/bash
 VERSION=1
 IMAGETAG=$(VERSION)
 REGISTRY=registry.cn-hangzhou.aliyuncs.com
-IMAGE=$(REGISTRY)/lisong/web
+IMAGE=$(REGISTRY)/lisong/cloud-web
 VERSIONED_IMAGE=$(IMAGE):$(IMAGETAG)
 
 export VERSIONED_IMAGE
@@ -31,7 +31,7 @@ test:
 	docker run --rm  $(VERSIONED_IMAGE)
 
 start:
-	docker stack deploy -c nginx.yml
+	docker stack deploy -c nginx.yml nginx
 	
 remove:
 	docker stack rm eureka

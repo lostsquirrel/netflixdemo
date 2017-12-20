@@ -1,9 +1,9 @@
 version: '3.2'
 services:
   nginx:
-    build: nginx
+    image: registry.cn-hangzhou.aliyuncs.com/lisong/cloud-web:1
     networks:
-      springcloud-overlay
+      - springcloud-overlay
     ports:
       - "80:80"
 networks:
