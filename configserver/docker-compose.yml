@@ -6,6 +6,8 @@ services:
       springcloud-overlay:
         aliases:
           - config
+    deploy:
+      endpoint_mode: dnsrr
 
 networks:
   springcloud-overlay:
