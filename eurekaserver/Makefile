@@ -4,7 +4,7 @@ VERSION=1.0-SNAPSHOT
 IMAGETAG=$(VERSION)
 REGISTRY=registry.cn-hangzhou.aliyuncs.com
 IMAGE=$(REGISTRY)/lisong/eureka-server
-VERSIONED_IMAGE=$(IMAGE):$(IMAGETAG)
+VERSIONED_IMAGE=$(IMAGE):$(IMAGETAG).$(shell git rev-parse --short HEAD)
 JAR_FILE=target/eureka-server-$(VERSION).jar
 export VERSIONED_IMAGE
 export JAR_FILE

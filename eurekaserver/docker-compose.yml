@@ -1,7 +1,7 @@
 version: '3.2'
 services:
   eureka1:
-    image: registry.cn-hangzhou.aliyuncs.com/lisong/eureka-server:1.0-SNAPSHOT
+    image: ${VERSIONED_IMAGE}
     deploy:
       mode: replicated
       replicas: 1
@@ -18,7 +18,7 @@ services:
       - ANOTHER_EUREKA_INSTANCE_HOST=eureka2
       - ANOTHER_EUREKA_INSTANCE_PORT=8761
   eureka2:
-    image: registry.cn-hangzhou.aliyuncs.com/lisong/eureka-server:1.0-SNAPSHOT
+    image: ${VERSIONED_IMAGE}
     deploy:
       mode: replicated
       replicas: 1
@@ -35,7 +35,7 @@ services:
        - ANOTHER_EUREKA_INSTANCE_HOST=eureka3
        - ANOTHER_EUREKA_INSTANCE_PORT=8761
   eureka3:
-    image: registry.cn-hangzhou.aliyuncs.com/lisong/eureka-server:1.0-SNAPSHOT
+    image: ${VERSIONED_IMAGE}
     deploy:
       mode: replicated
       replicas: 1
