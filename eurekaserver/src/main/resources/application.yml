@@ -1,6 +1,5 @@
 server:
   port: ${SERVER_PORT:8761}
-  context-path: /eureka
 spring:
   application:
     name: ${SPRING_APPLICATION_NAME:eureka}
