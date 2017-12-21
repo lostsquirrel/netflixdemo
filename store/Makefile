@@ -2,7 +2,9 @@ SHELL=/bin/bash
 
 VERSION=1.0-SNAPSHOT
 IMAGETAG=$(VERSION)
+
 REGISTRY=registry.cn-hangzhou.aliyuncs.com
+REGISTRY=registry.lisong.pub
 IMAGE=$(REGISTRY)/lisong/stores
 VERSIONED_IMAGE=$(IMAGE):$(IMAGETAG).$(shell git rev-parse --short HEAD)
 JAR_FILE=target/store-$(VERSION).jar
