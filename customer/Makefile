@@ -3,8 +3,11 @@ SHELL=/bin/bash
 VERSION=1.0-SNAPSHOT
 IMAGETAG=$(VERSION)
 
-# if use another registry add  MY_REGISTRY=registry.lisong.pub:5000 to ~/.bashrc
-REGISTRY=${MY_REGISTRY:registry.cn-hangzhou.aliyuncs.com}
+# if use another registry add  REGISTRY=registry.lisong.pub:5000 to ~/.bashrc
+ifndef REGISTRY
+    REGISTRY=registry.cn-hangzhou.aliyuncs.com
+endif
+
 IMAGE=$(REGISTRY)/lisong/customer
 VERSIONED_IMAGE=$(IMAGE):$(IMAGETAG).$(shell git rev-parse --short HEAD)
 JAR_FILE=target/customer-$(VERSION).jar

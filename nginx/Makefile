@@ -3,7 +3,9 @@ SHELL=/bin/bash
 VERSION=v1.$(shell git rev-parse --short HEAD)
 IMAGETAG=$(VERSION)
 # if use another registry add  MY_REGISTRY=registry.lisong.pub:5000 to ~/.bashrc
-REGISTRY=${MY_REGISTRY:registry.cn-hangzhou.aliyuncs.com}
+ifndef REGISTRY
+    REGISTRY=registry.cn-hangzhou.aliyuncs.com
+endif
 IMAGE=$(REGISTRY)/lisong/cloud-web
 VERSIONED_IMAGE=$(IMAGE):$(IMAGETAG)
 
