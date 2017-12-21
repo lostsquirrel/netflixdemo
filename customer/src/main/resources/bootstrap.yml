@@ -1,16 +1,18 @@
 # Core application configuration
 server:
   port: 8080
+  context-path: /customer
 spring:
   application:
     name: Customer
-
+  cloud:
+    config:
+      discovery:
+        enabled: true
+        service-id: MyConfig
 # Cloud configuration
 eureka:
   client:
     enabled: true
     serviceUrl:
-      defaultZone: http://peer1:8761/eureka/
-
-feign:
-  name: stores
+      defaultZone: http://eureka1:8761/eureka/

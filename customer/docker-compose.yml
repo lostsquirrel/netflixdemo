@@ -1,0 +1,19 @@
+version: '3.4'
+services:
+  store:
+    image: ${VERSIONED_IMAGE}
+    networks:
+      springcloud-overlay:
+        aliases:
+          - customer
+    deploy:
+      mode: replicated
+      replicas: 3
+      resources:
+        limits:
+          cpus: '0.50'
+          memory: 150M
+networks:
+  springcloud-overlay:
+    external:
+      name: springcloud-overlay

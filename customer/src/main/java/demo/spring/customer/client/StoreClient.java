@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import java.util.List;
 
-@FeignClient(name = "${feign.name}") // an arbitrary client name, which is used to create a Ribbon load balancer
+@FeignClient(name = "stores") // an arbitrary client name, which is used to create a Ribbon load balancer
 public interface StoreClient {
     @RequestMapping(method = RequestMethod.GET, value = "/stores")
     List<Store> getStores();
