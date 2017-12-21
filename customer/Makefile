@@ -23,7 +23,7 @@ pull:
 code:
 	git reset --hard HEAD && git pull
 package:
-	mvn clean package
+	mvn clean package -DskipTests
 
 build: package
 	docker build --no-cache -t $(VERSIONED_IMAGE) \
