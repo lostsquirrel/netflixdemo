@@ -6,6 +6,10 @@ services:
       springcloud-overlay:
         aliases:
           - stores
+    deploy:
+      mode: replicated
+      replicas: 3
+      endpoint_mode: dnsrr
 networks:
   springcloud-overlay:
     external:
