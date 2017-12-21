@@ -5,7 +5,7 @@ services:
     networks:
       springcloud-overlay:
         aliases:
-          - store
+          - stores
 networks:
   springcloud-overlay:
     external:
