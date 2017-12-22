@@ -1,5 +1,5 @@
 SHELL=/bin/bash
-
+-include *.mk
 VERSION=v1.$(shell git rev-parse --short HEAD)
 IMAGETAG=$(VERSION)
 # if use another registry add  MY_REGISTRY=registry.lisong.pub:5000 to ~/.bashrc
