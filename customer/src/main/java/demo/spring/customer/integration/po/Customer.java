@@ -1,4 +1,4 @@
-package demo.spring.customer.client.po;
+package demo.spring.customer.integration.po;
 
 import java.util.List;
 

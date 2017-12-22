@@ -1,0 +1,14 @@
+version: '3.4'
+services:
+  nginx:
+    image: ${VERSIONED_IMAGE}
+    networks:
+      springcloud-overlay:
+        aliases:
+          - hystrix-dashboard
+    ports:
+      - "8090:8080"
+networks:
+  springcloud-overlay:
+    external:
+      name: springcloud-overlay

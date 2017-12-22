@@ -29,6 +29,10 @@ public class StoreController {
         data.put("msg", "this is stores service");
         return data;
     }
+//
+//    public Object chain() {
+//
+//    }
 
     @RequestMapping("/near")
     public Page<Store> search(@RequestParam("latitude")Double latitude,

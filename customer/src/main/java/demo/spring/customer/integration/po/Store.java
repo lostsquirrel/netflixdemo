@@ -1,4 +1,4 @@
-package demo.spring.customer.client.po;
+package demo.spring.customer.integration.po;
 
 import org.springframework.data.geo.Point;
 
@@ -12,10 +12,13 @@ public class Store implements Serializable {
 
     private Address address;
 
-    public Store(){}
-    public Store(String name, Address address) {
-        this.name = name;
-        this.address = address;
+    private String msg;
+
+    public Store(String msg){
+        this.msg = msg;
+    }
+
+    public Store() {
     }
 
     public String getId() {
@@ -40,6 +43,14 @@ public class Store implements Serializable {
 
     public void setAddress(Address address) {
         this.address = address;
+    }
+
+    public String getMsg() {
+        return msg;
+    }
+
+    public void setMsg(String msg) {
+        this.msg = msg;
     }
 
     public static class Address implements Serializable {

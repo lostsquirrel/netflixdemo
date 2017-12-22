@@ -9,17 +9,17 @@ spring:
   cloud:
     config:
       discovery:
-        enabled: true
+        enabled: false
         service-id: MyConfig
 eureka:
   client:
-    enabled: true
-    registerWithEureka: true
-    fetchRegistry: true
+    enabled: false
+    registerWithEureka: false
+    fetchRegistry: false
     serviceUrl:
       defaultZone: http://eureka1:8761/eureka/
   instance:
     prefer-ip-address: true
-debug: true
+
 
 

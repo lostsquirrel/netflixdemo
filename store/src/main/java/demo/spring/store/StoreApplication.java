@@ -28,6 +28,7 @@ public class StoreApplication {
 
     @Value("${spring.redis.host}")
     String host;
+
     @Bean
     public RedisConnectionFactory redisConnectionFactory() {
 

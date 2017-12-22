@@ -1,10 +1,9 @@
-# Core application configuration
 server:
-  port: 8082
-  context-path: /customer
+  port: 8083
+  context-path: /hystrix
 spring:
   application:
-    name: Customer
+    name: Hystrix
   redis:
     host: redis
   cloud:
@@ -12,15 +11,15 @@ spring:
       discovery:
         enabled: false
         service-id: MyConfig
-
-# Cloud configuration
 eureka:
   client:
     enabled: false
     registerWithEureka: true
-    useDnsForFetchingServiceUrls: false
     fetchRegistry: true
     serviceUrl:
-      defaultZone: http://192.168.10.10:8761/eureka/
+      defaultZone: http://eureka1:8761/eureka/
   instance:
     prefer-ip-address: true
+debug: true
+
+
