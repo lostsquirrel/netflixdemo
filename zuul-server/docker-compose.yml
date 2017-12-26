@@ -9,8 +9,7 @@ services:
     deploy:
       mode: replicated
       replicas: 1
-    ports:
-      - "88:8080"
+      endpoint_mode: dnsrr
 networks:
   springcloud-overlay:
     external:
