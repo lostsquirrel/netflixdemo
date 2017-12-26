@@ -4,18 +4,19 @@ spring:
   cloud:
     config:
       discovery:
-        enabled: false
+        enabled: true
         service-id: MyConfig
 eureka:
   client:
+    enabled: true
+    registerWithEureka: true
+    fetchRegistry: true
     serviceUrl:
       defaultZone: http://eureka1:8761/eureka/
 debug: true
+
 zuul:
   routes:
-    eureka1:
-    eureka2:
-    eureka3:
     zipkin:
     sleuth1:
     sleuth2:
