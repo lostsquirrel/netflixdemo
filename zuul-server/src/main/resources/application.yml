@@ -1,5 +1,23 @@
 spring:
   application:
     name: zuul
-
+  cloud:
+    config:
+      discovery:
+        enabled: false
+        service-id: MyConfig
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://eureka1:8761/eureka/
 debug: true
+zuul:
+  routes:
+    eureka1:
+    eureka2:
+    eureka3:
+    zipkin:
+    sleuth1:
+    sleuth2:
+    sleuth3:
+    sleuth4:
