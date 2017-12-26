@@ -10,11 +10,11 @@ import java.util.Arrays;
 
 @SpringBootApplication
 @EnableEurekaServer
-public class Application {
-    private  static final Logger logger = LoggerFactory.getLogger(Application.class);
+public class EurekaServerApplication {
+    private  static final Logger logger = LoggerFactory.getLogger(EurekaServerApplication.class);
 
     public static void main(String[] args) {
         logger.debug(Arrays.toString(args));
-        new SpringApplicationBuilder(Application.class).web(true).run(args);
+        new SpringApplicationBuilder(EurekaServerApplication.class).web(true).run(args);
     }
 }
