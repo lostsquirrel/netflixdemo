@@ -10,6 +10,8 @@ services:
       mode: replicated
       replicas: 1
       endpoint_mode: dnsrr
+    environment:
+      BOOT_EUREKA_SERVER: eureka1
 networks:
   springcloud-overlay:
     external:
