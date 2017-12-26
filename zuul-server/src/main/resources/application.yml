@@ -1,4 +1,5 @@
 spring:
   application:
     name: zuul
+
 debug: true
