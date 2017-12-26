@@ -8,6 +8,8 @@ services:
           - nginx
     ports:
       - "80:80"
+    extra_hosts:
+      - "rabbitmq-standalone:192.168.10.211"
 networks:
   springcloud-overlay:
     external:
